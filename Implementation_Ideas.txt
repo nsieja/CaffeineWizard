@@ -1,0 +1,29 @@
+Author:  Nick Sieja
+Date:    9/5/2024
+Updated: 9/5/2024
+
+This document is used for:
+
+a) Conceptual Notes / Ideas and
+b) Implementation steps that will be deleted once implemented
+
+
+a. Notes / Ideas
+
+* Use Pyforms module to integrate open source API for user interface similar to Windows Forms (simple)
+
+
+
+b. Implementations
+
+* Script for calculations
+* Function cafCalculate(caffeine, drinkTime, projectionTime, *k1, *k2) | returns cafModel, cafTime
+    - caffeine is amount in mg (recommend to user: 80mg)
+    - drinkTime is time to drink (recommend to user: 10min)
+    - projectionTime is time to plot response (recommend 4hr)
+    - k1,k2 are optional inputs (default values determined by research in "sources")
+    - returns cafModel, a list of values over time by seconds
+    - returns cafTime, a list of time in seconds corresponding to the calculated model cafModel
+
+* Script for graphing
+* Function cafPlot()
