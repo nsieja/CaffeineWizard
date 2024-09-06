@@ -12,6 +12,15 @@ a. Notes / Ideas
 
 * Use Pyforms module to integrate open source API for user interface similar to Windows Forms (simple)
 
+Table 1. Summarize Caffeine’s Pharmacokinetics
+Log P: 0.85
+Absorption rate constant (K01): ~0.33 minute^-1
+Volume of distribution: 0.5–0.75 L/kg
+Plasma-protein binding: ~10–30%
+Half-life (t1/2): ~4 hrs
+Clearance: ~1–3 mg/kg/min
+Elimination rate constant: ~0.09–0.33 hour^-1
+
 
 
 b. Implementations
