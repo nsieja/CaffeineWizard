@@ -1,16 +1,17 @@
 #!/usr/bin/env
 
 """
-File:        caffeineCalculations.py
+File:        caffeineWizard.py
 Author:      Nicholas Sieja
 Date:        9/5/2024
 Description: Accepts user input for caffeine consumption, 
 assumes or accepts input for function constants, 
-calculates bodily response to caffeine.
+calculates bodily response to caffeine. Plots response.
 """
 
 import numpy as np
 from scipy.integrate import odeint
+import matplotlib.pyplot as plt
 
 def cafCalculate(caf, drinkTime, projectionTime):
     '''
@@ -96,3 +97,6 @@ def odes(state,t,k1,k2,x0,T):
     return [dqdt, dydt]
 
 test = cafCalculate(60,10,4)
+plt.plot(test[2],test[1])
+plt.plot(test[2],test[0])
+plt.show()
