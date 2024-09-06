@@ -12,7 +12,7 @@ calculates bodily response to caffeine.
 import numpy as np
 from scipy.integrate import odeint
 
-def cafCalculate(caffeine, drinkTime, projectionTime):
+def cafCalculate(caf, drinkTime, projectionTime):
     '''
     Return two lists of floats, cafModel and cafTime, that 
     describe the body response to caffeine intake. The
@@ -20,7 +20,7 @@ def cafCalculate(caffeine, drinkTime, projectionTime):
     function to generate a graph(s) for the user
 
     Parameters:
-    caffeine      : (int) amount of caffeine consumed (mg)
+    caf           : (int) amount of caffeine consumed (mg)
     drinkTime     : (int) time to consume caffeine (min)
     projectionTime: (int) time to project out response (min)
 
@@ -32,11 +32,33 @@ def cafCalculate(caffeine, drinkTime, projectionTime):
     (independent variable) for plotting purposes
 
     Precondition:
-    caffeine is int, drinkTime is int, projectionTime is int
+    caf is int, drinkTime is int, projectionTime is int
     '''
-    pass
 
-def odes(q,y,t,k1,k2,x0,T):
+    # Parameters
+    k1 = 0.0625         # Example value for k1
+    k2 = 0.0104         # Example value for k2
+    x0 = caf/drinkTime  # Constant value of x(t) for t <= T
+    T = drinkTime       # Time when x(t) drops to 0
+
+    # Initial conditions
+    init_cond = [0,0] #Initial values q(0) and y(0)
+
+    # Time points where the solution is computed
+    t = np.linspace(0, projectionTime*60, projectionTime*3600)  # 4hrs
+
+    # Solve the ODE system
+    solution = odeint(odes, init_cond, t, args=(k1, k2, x0, T))
+
+    # Extract the results for q(t) and y(t)
+    q_solution = solution[:, 0]
+    y_solution = solution[:, 1]
+    cafModel = (q_solution, y_solution, t)
+
+    return cafModel
+
+
+def odes(state,t,k1,k2,x0,T):
     """
     Compute the derivatives of q and y for the system of ODEs:
     
@@ -46,8 +68,9 @@ def odes(q,y,t,k1,k2,x0,T):
     where x(t) describes the caffeine intake
     
     Parameters:
-    q : (float) current value of q(t)
-    y : (float) current value of y(t)
+    state:
+        (list/array) contains current values of q and y
+        state[0] = q(t), state[1] = y(t)
     t : (float) current time that derivatives are being evaluated
     k1: (float) constant rate coefficient for the first ODE
     k2: (float) constant rate coefficient for the second ODE.
@@ -58,6 +81,9 @@ def odes(q,y,t,k1,k2,x0,T):
     [dqdt, dydt]: (list) contains the derivatives [dq/dt, dy/dt] 
     at the current time point t
     """
+
+    q, y = state
+
     if t <= T:
         x_t = x0    # Amt affeine over time T to consume
     else:
@@ -68,3 +94,5 @@ def odes(q,y,t,k1,k2,x0,T):
     dydt = k1*q - k2*y      # Bloodstream kinetics
     
     return [dqdt, dydt]
+
+test = cafCalculate(60,10,4)
