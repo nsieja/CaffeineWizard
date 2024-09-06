@@ -25,15 +25,14 @@ Elimination rate constant: ~0.09–0.33 hour^-1
 
 b. Implementations
 
-* Script for calculations
-* Function cafCalculate(caffeine, drinkTime, projectionTime, *k1, *k2) | returns cafModel
-    - caffeine is amount in mg (recommend to user: 80mg)
+* Script for calculations and plotting (caffeineWizard)
+* Function cafCalculate(caf, drinkTime, projectionTime, *k1, *k2) | returns cafModel
+    - caf is amount in mg (recommend to user: 60mg)
     - drinkTime is time to drink (recommend to user: 10min)
     - projectionTime is time to plot response (recommend 4hr)
     - k1,k2 are optional inputs (default values determined by research in "sources")
     - returns cafModel, a tupel containing 1 list of floats corresponding to caffeine levels in GI tract, 
       1 list of floats corresponding to caffeine levels in blood, and 1 list of floats that represent the 
       time (independent variable) for plotting purposes
-
-* Script for graphing
-* Function cafPlot()
+*Function for plotting
+    - uses matplotlib.pyplot as plt to display results of cafCalculate (cafModel)
