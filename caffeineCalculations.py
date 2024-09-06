@@ -10,6 +10,7 @@ calculates bodily response to caffeine.
 """
 
 import numpy as np
+from scipy.integrate import odeint
 
 def cafCalculate(caffeine, drinkTime, projectionTime):
     '''
