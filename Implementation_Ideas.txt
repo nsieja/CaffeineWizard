@@ -17,13 +17,14 @@ a. Notes / Ideas
 b. Implementations
 
 * Script for calculations
-* Function cafCalculate(caffeine, drinkTime, projectionTime, *k1, *k2) | returns cafModel, cafTime
+* Function cafCalculate(caffeine, drinkTime, projectionTime, *k1, *k2) | returns cafModel
     - caffeine is amount in mg (recommend to user: 80mg)
     - drinkTime is time to drink (recommend to user: 10min)
     - projectionTime is time to plot response (recommend 4hr)
     - k1,k2 are optional inputs (default values determined by research in "sources")
-    - returns cafModel, a list of values over time by seconds
-    - returns cafTime, a list of time in seconds corresponding to the calculated model cafModel
+    - returns cafModel, a tupel containing 1 list of floats corresponding to caffeine levels in GI tract, 
+      1 list of floats corresponding to caffeine levels in blood, and 1 list of floats that represent the 
+      time (independent variable) for plotting purposes
 
 * Script for graphing
 * Function cafPlot()
