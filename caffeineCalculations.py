@@ -22,17 +22,24 @@ def cafCalculate(caffeine, drinkTime, projectionTime):
                     caffeine (int): The amount of caffeine 
                     consumed in mg
 
-                    drinkTime (int): The amount of time taken 
-                    to consume the caffeine in minutes
+                    drinkTime (int): The amount of time 
+                    taken to consume the caffeine in minutes
 
                     projectionTime (int): The amount of time 
                     over which to calculate and project the 
                     response in minutes
 
             Returns:
-                    cafModel (tuple): tuple containing 1 list of floats corresponding to caffeine levels in GI tract, 1 list of floats corresponding to caffeine levels in blood, and 1 list of floats that represent the time (independent variable) for plotting purposes
+                    cafModel (tuple): tuple containing 1 
+                    list of floats corresponding to 
+                    caffeine levels in GI tract, 1 list of 
+                    floats corresponding to caffeine levels 
+                    in blood, and 1 list of floats that 
+                    represent the time (independent variable) 
+                    for plotting purposes
 
             Precondition:
-                    caffeine is type int, drinkTime is type int, projectionTime is type int
+                    caffeine is type int, drinkTime is type 
+                    int, projectionTime is type int
     '''
     pass
