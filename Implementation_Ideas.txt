@@ -21,6 +21,9 @@ Half-life (t1/2): ~4 hrs
 Clearance: ~1–3 mg/kg/min
 Elimination rate constant: ~0.09–0.33 hour^-1
 
+* In final user interface, use loading screen graphics for phase between input and graph display to cover
+for long processing time during ODE calc if necessary
+
 
 
 b. Implementations
