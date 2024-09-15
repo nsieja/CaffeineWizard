@@ -13,7 +13,7 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-def cafCalculate(caf, drinkTime, projectionTime):
+def cafCalculate(caffeine_amount, drinkTime, projectionTime):
     '''
     Return two lists of floats, cafModel and cafTime, that 
     describe the body response to caffeine intake. The
@@ -21,9 +21,9 @@ def cafCalculate(caf, drinkTime, projectionTime):
     function to generate a graph(s) for the user
 
     Parameters:
-    caf           : (int) amount of caffeine consumed (mg)
-    drinkTime     : (int) time to consume caffeine (min)
-    projectionTime: (int) time to project out response (min)
+    caffeine_amount:    (int) amount of caffeine consumed (mg)
+    drinkTime:          (int) time to consume caffeine (min)
+    projectionTime:     (int) time to project out response (min)
 
     Returns:
     cafModel: (tuple) contains 1 list of floats 
@@ -33,20 +33,20 @@ def cafCalculate(caf, drinkTime, projectionTime):
     (independent variable) for plotting purposes
 
     Precondition:
-    caf is int, drinkTime is int, projectionTime is int
+    caffeine_amount is int, drinkTime is int, projectionTime is int
     '''
 
     # Parameters
     k1 = 0.0625         # Example value for k1
     k2 = 0.0104         # Example value for k2
-    x0 = caf/drinkTime  # Constant value of x(t) for t <= T
+    x0 = caffeine_amount/drinkTime  # Constant value of x(t) for t <= T
     T = drinkTime       # Time when x(t) drops to 0
 
     # Initial conditions
     init_cond = [0,0] #Initial values q(0) and y(0)
 
-    # Time points where the solution is computed
-    t = np.linspace(0, projectionTime*60, projectionTime*3600)  # 4hrs
+    # Time points for ODE solution (in seconds, 1 point per second for 4 hours)
+    t = np.linspace(0, projectionTime*60, projectionTime*3600)
 
     # Solve the ODE system
     solution = odeint(odes, init_cond, t, args=(k1, k2, x0, T))
