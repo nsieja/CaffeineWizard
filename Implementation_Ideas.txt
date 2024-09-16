@@ -24,6 +24,9 @@ Elimination rate constant: ~0.09–0.33 hour^-1
 * In final user interface, use loading screen graphics for phase between input and graph display to cover
 for long processing time during ODE calc if necessary
 
+* Should use Django for Python-enabled back-end
+* Should use React or similar (JS) for web and mobile supported front end (UI)
+
 
 
 b. Implementations
