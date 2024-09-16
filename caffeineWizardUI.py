@@ -1,3 +1,14 @@
+#!/usr/bin/env python3
+
+"""
+File:        caffeineWizardUI.py
+Author:      Nicholas Sieja
+Date:        9/15/2024
+Description: Accepts user input for caffeine consumption, 
+assumes or accepts input for function constants, 
+calculates bodily response to caffeine. Plots response.
+"""
+
 from pyforms import BaseWidget
 from pyforms.controls import ControlText, ControlButton
 from caffeineWizard import cafCalculate

@@ -4,9 +4,10 @@
 File:        caffeineWizard.py
 Author:      Nicholas Sieja
 Date:        9/5/2024
-Description: Accepts user input for caffeine consumption, 
-assumes or accepts input for function constants, 
-calculates bodily response to caffeine. Plots response.
+Description: Defines required functions called by
+caffeineWizardUI.py. Base function is to perform 
+the calculations that provide user relevant body
+response data.
 """
 
 import numpy as np
