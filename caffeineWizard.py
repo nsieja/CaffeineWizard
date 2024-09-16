@@ -95,12 +95,3 @@ def odes(state,t,k1,k2,x0,T):
     dydt = k1*q - k2*y      # Bloodstream kinetics
     
     return [dqdt, dydt]
-
-test = cafCalculate(60,10,4)
-
-plt.plot(test[2], test[0], label='GI Tract Caffeine Level')
-plt.plot(test[2], test[1], label='Bloodstream Caffeine Level')
-plt.xlabel('Time (min)')
-plt.ylabel('Caffeine (mg)')
-plt.legend()
-plt.show()
