@@ -27,6 +27,8 @@ for long processing time during ODE calc if necessary
 * Should use Django for Python-enabled back-end
 * Should use React or similar (JS) for web and mobile supported front end (UI)
 
+* Possible replacement names: Cafinnity, JavaMeter
+
 
 
 b. Implementations
