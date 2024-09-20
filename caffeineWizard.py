@@ -64,15 +64,15 @@ def odes(state,t,k1,k2,x0,T):
     """
     Compute the derivatives of q and y for the system of ODEs:
     
-        dq/dt = -k1 * q + x(t)
-        dy/dt = k1 * q - k2 * y
+        GI = -k1 * q + x(t)
+        Blood = k1 * q - k2 * y
     
     where x(t) describes the caffeine intake
     
     Parameters:
     state:
-        (list/array) contains current values of q and y
-        state[0] = q(t), state[1] = y(t)
+        (list/array) contains current values of 'GI' and 'Blood'
+        state[0] = GI(t), state[1] = Blood(t)
     t : (float) current time that derivatives are being evaluated
     k1: (float) constant rate coefficient for the first ODE
     k2: (float) constant rate coefficient for the second ODE.
@@ -80,7 +80,7 @@ def odes(state,t,k1,k2,x0,T):
     T : (float) time point at which x(t) is 0 (done consuming)
 
     Returns:
-    [dqdt, dydt]: (list) contains the derivatives [dq/dt, dy/dt] 
+    [GI, Blood]: (list) contains the derivatives [dGI/dt, dBlood/dt] 
     at the current time point t
     """
 
@@ -92,7 +92,7 @@ def odes(state,t,k1,k2,x0,T):
         x_t = 0     # Done consuming caffeine
 
     # Define system of ODEs
-    dqdt = -k1*q + x_t      # GI tract kinetics
-    dydt = k1*q - k2*y      # Bloodstream kinetics
+    GI = -k1*q + x_t            # GI tract kinetics
+    Blood = k1*q - k2*y         # Bloodstream kinetics
     
-    return [dqdt, dydt]
+    return [GI, Blood]
